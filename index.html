@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="functions.js" defer></script>
+</head>
+
+<body>
+  <div data-role="page" id="contacts">
+    <div data-role="header">
+      <a href="#register" data-role="button" data-icon="plus" data-iconpos="left">Add</a>
+
+      <h1>Contact List</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <ul data-filter="true" data-filter-placeholder="Search..."  id="contactsListView" data-role="listview" data-split-icon="phone" data-split-theme="a" data-inset="true">
+
+      </ul>
+
+    </div>
+
+    <div data-role="footer">
+      <h1>Footer Text</h1>
+    </div>
+
+  </div>
+
+  <div data-role="page" id="register">
+    <div data-role="header">
+      <h1>Add Contact</h1>
+      <a href="#contacts" data-role="button" data-icon="arrow-l" data-iconpos="left">Back</a>
+
+    </div>
+    <div class="ui-content">
+      <div>
+        <label for="fname">First name:</label>
+        <input type="text" name="fname" id="fname" data-clear-btn="true">
+        <label style="font-size: 15px; color: red;" id="incorrectName"></label>
+
+      </div>
+      <div>
+        <label for="number-pattern">Phone</label>
+        <input type="number" name="number" id="phone" pattern="[0-9]*" id="phone" value="">
+        <label style="font-size: 15px; color: red;" id="incorrectPhone"></label>
+
+      </div>
+      <div>
+        <label for="number-pattern">Email</label>
+        <input type="email" name="number" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="number-pattern" value="">
+        <label style="font-size: 15px; color: red;" id="incorrectMail"></label>
+
+      </div>
+      <div>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+          <legend>Gender</legend>
+          <input type="radio" name="gender" id="male" value="male" checked="checked">
+          <label for="male">Male</label>
+          <input type="radio" name="gender" id="female" value="female">
+          <label for="female">Female</label>
+        </fieldset>
+        <div style="padding:20px; display: flex; justify-content: center;">
+          <button  onclick="save()" data-icon="check" data-iconpos="right" id="save">Save</button>
+          <button  data-icon="forbidden" data-iconpos="right" id="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-role="page" id="profile">
+    <div data-role="header">
+      <h1 id="contactName"</h1>
+        <a href="#contacts" data-role="button" data-icon="arrow-l" data-iconpos="left">Back</a>
+    </div>
+    <div class="ui-content">
+      <div style="position: absolute">
+        <img  id="contactimg"width="200" height="200">
+      </div>
+      <div>
+        <label style="position: absolute; left:250px; top:150px;">Phone Number:</label>
+        <label id="contactnum" style="position: absolute; left:250px; top:180px;"></label>
+        <label style="position: absolute; left:250px; top:210px;">Email:</label>
+        <label id="contactmail" style="position: absolute; left:250px; top:240px;"></label>
+
+
+      </div>
+    </div>
+
+        <div style="padding:20px; display: flex; justify-content: center; position:relative; top:200px">
+          <button  onClick="editProfile()" data-icon="check" data-iconpos="right" id="edit">Edit</button>
+          <a   style="width:100px" data-role="button" data-icon="phone" data-iconpos="right" id="call">Call</a>
+          <button  data-icon="forbidden" data-iconpos="right" id="delete">Delete</button>
+        </div>
+
+  </div>
+
+
+
+
+</body>
+
+</html>
